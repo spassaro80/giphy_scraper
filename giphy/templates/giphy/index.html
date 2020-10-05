@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Giphy Scraper</title>
+    {% load static %}
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+    <!-- Estilos -->
+    <link href="{% static 'giphy/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'giphy/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'giphy/css/main.css' %}" rel="stylesheet">
+  </head>
+  <body>
+
+  <!-- Header -->
+    <header class="masthead" style="background-image: url('https://source.unsplash.com/UxQO710yie4')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1 class="heading text-center"> Giphy Scraper</h1>
+            <span class="subheading text-center">Scrapes all gifs from www.ghipy.com and store in your PC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  
+  
+      <!-- Content -->
+  <h1>Enter your search term here</h1>
+  <form action = "{% url 'startscraper' %}" method="post">{% csrf_token %}
+  <div class="form-group" >
+    <label for="input1">Search term for gif</label>
+    <input type="text" class="form-control" id="input1" name="input1" placeholder="Please enter the search term to scrape in giphy.com">
+    <label for="input2">Number of gif to be scraped</label>
+    <input type="text" class="form-control" id="input2" name="input2" placeholder="Please enter the number of gifs you want to scrape. Type All to scrape all gifs">
+  </div>
+  <button type="submit" value = "Submit" class="btn btn-primary">Submit</button>
+  </form>
+
+      <!-- Javascript -->
+      <script src="{% static 'giphy/vendor/jquery/jquery.min.js' %}"></script>
+      <script src="{% static 'giphy/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'giphy/js/main.js' %}"></script>
+  </body>
+</html>
